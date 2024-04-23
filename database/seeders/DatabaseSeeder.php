@@ -12,9 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       
+        //per il seeder della tabella dei posts
         $this->call([
             PostSeeder::class,
+        ]);
+
+        //per i seeder della tabella dei types 
+        $this->call([
+            TypeSeeder::class,
         ]);
     }
 }
