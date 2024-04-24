@@ -15,6 +15,7 @@
 
     <div class="d-flex flex-column align-items-start gap-3">
         <a href="{{route('admin.posts.index')}}" class="btn btn-info">Vai a vedere la lista degli elementi</a>
+        <a href="{{route('admin.types.index')}}" class="btn btn-info">Vai a vedere la lista dei tipi</a>
         <a href="{{route('admin.users')}}" class="btn btn-info">Vai a vedere la lista degli admin</a>
     </div>
     

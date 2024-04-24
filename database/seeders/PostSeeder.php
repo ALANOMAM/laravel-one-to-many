@@ -19,11 +19,12 @@ class PostSeeder extends Seeder
             //per ora lo lascio cosi finchè non avrò collegato il tutto ad un file contenente gli array  
             $newPost = new Post();
     
-            $newPost->Nome = 'alan';
-            $newPost->Descrizione = 'you are not alone, i am here with you' ;
+            $newPost->Nome = 'andy';
+            //$newPost->type_id = 1 ;
+            $newPost->Descrizione = '' ;
             $newPost->Immagine_di_copertina = ' ';
             $newPost->Tecnologie_utilizzate=  implode(' , ', ['html','css','javascrit']) ;
-            $newPost->Link_repo_GitHub= 'https://www.youtube.com/' ;
+            $newPost->Link_repo_GitHub= '' ;
             
     
             //questo ci serve per salvare i campi e applicare e modifiche

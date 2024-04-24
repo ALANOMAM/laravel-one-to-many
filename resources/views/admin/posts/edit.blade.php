@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-  <h1>PAGINA EDIT</h1>
+  <h1>PAGINA EDIT DEI POST</h1>
 
         <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data" {{--questo pezzo "enctype" l'ho aggiunto per via dell'immagine--}} >
 
@@ -22,6 +22,28 @@
             @enderror
           </div>
           
+     
+           <!--parte che rigiarda i tipi start-->
+       <div class="mb-3">
+        <label for="type_id" class="form-label"><strong>Tipi</strong></label>
+        {{--@dump($types)--}}
+        
+          <select class="form-select" name="type_id" id="type_id">
+            <option value=""></option>
+            @foreach($types as $type)
+            {{-- la parte "{{$type->id == $post->type_id ? 'selected' : '' }}" aggiunge "selected" mia 
+            opzione se soddisfa la condizione, con l'aggiunta della parola "selectied" ad una opzione 
+            mi restituisce il valore presente nell'opzione--}}
+            <option value="{{$type->id}}" {{$type->id == $post->type_id ? 'selected' : '' }}>{{$type->title}}</option>
+            @endforeach
+          </select>
+      
+      </div>
+       <!--parte che rigiarda i tipi end-->
+
+
+
+
           <div class="mb-3">
               <label for="Descrizione" class="form-label"><strong>Descrizione</strong></label>
               <textarea type="text" class="form-control @error('Descrizione') is-invalid @enderror" id="Descrizione" name="Descrizione" required>{{old('Descrizione')??$post->Descrizione}}</textarea>   

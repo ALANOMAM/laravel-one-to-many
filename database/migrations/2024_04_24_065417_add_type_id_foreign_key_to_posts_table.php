@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            //è qui che si crea il collegamento tra la tabella posts e types 
+             //è qui che si crea il collegamento tra la tabella posts e types 
             //per mezzo del type_id
             //il "contrained()" obbliga il database (e laravel) a vereficare che ogni elemento inserito
             //in quella colonna abbia l'id crrispettivo nella tabella collegata. 
@@ -36,3 +36,4 @@ return new class extends Migration
         });
     }
 };
+

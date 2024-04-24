@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -24,9 +25,9 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-        return view("admin/posts/create");
+    {    //prendo tutti i tipi e li passo alla vista create dei posts
+         $types = Type::all();
+        return view("admin/posts/create", compact('types'));
     }
 
     /**
@@ -35,7 +36,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
 
-       //dd($request);
+        //dd($request);
 
         $request->validated();
 
@@ -43,18 +44,17 @@ class PostController extends Controller
 
          
         $newPostElement->Nome = $request['Nome']; 
+        //$newPostElement->type_id = $request['type_id ']; 
         $newPostElement->Descrizione = $request['Descrizione'];
         //controliamo se nella riquest dell'immagine c'è un file in arrivo
         //questo perchè essendo nullable posso anche lasciare tutto vuoto volendo
         if($request->hasFile('Immagine_di_copertina')){
-            //ci salviamo il percorso dell'immagine in una variabile che chiameremo "path"
-            //e contemporaneamente salviamo l'immagine nel server.(cioe nella cartella public in "app/public/storage")
-            //la cartella dove salveremo tutto si chiamerà "post_images"
+          
             $path = Storage::disk('public')->put('post_images', $request->Immagine_di_copertina);
             
             $newPostElement->Immagine_di_copertina = $path;
         }
-       // $newPostElement->Immagine_di_copertina = $request['Immagine_di_copertina'];
+     
 
         $newPostElement->Tecnologie_utilizzate = $request['Tecnologie_utilizzate'];
         $newPostElement->Link_repo_GitHub = $request['Link_repo_GitHub'];
@@ -80,7 +80,9 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::find($id);
-        return view("admin/posts/edit",compact('post'));
+        //selezionare i tipi nell'edit
+        $types = Type::all();
+        return view("admin/posts/edit",compact('post','types'));
     }
 
     /**
@@ -93,7 +95,8 @@ class PostController extends Controller
         $newPostElement2 =  Post::find($id);
 
          
-        $newPostElement2->Nome = $request['Nome']; 
+        $newPostElement2->Nome = $request['Nome'];
+         //$newPostElement2->type_id = $request['type_id '];  
         $newPostElement2->Descrizione = $request['Descrizione'];
 
 

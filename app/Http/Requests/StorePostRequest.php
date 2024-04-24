@@ -23,6 +23,10 @@ class StorePostRequest extends FormRequest
     {
         return [
             'Nome'=>'required|max:100',
+            //ho aggiunto questa parte type_id dopo avere creato la colonna 
+            //il pezzo "|exists:type_id" ci fa controllare se l'id che manderemo nei nostri selects nelle viste esistono 
+            //nella colonna "type_id'"
+            'type_id'=>'nullable|exists:type_id',
             'Descrizione' => 'required',
             'Immagine_di_copertina' =>'nullable',
             'Tecnologie_utilizzate' =>'nullable',

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             
-            $table->string('Nome');  
+            $table->string('Nome'); 
             $table->string('Descrizione');
             $table->text('Immagine_di_copertina')->nullable();
             $table->text('Tecnologie_utilizzate')->nullable();
