@@ -43,8 +43,7 @@ class PostController extends Controller
         $newPostElement = new Post();
 
          
-        $newPostElement->Nome = $request['Nome']; 
-        //$newPostElement->type_id = $request['type_id ']; 
+        $newPostElement->Nome = $request['Nome'];  
         $newPostElement->Descrizione = $request['Descrizione'];
         //controliamo se nella riquest dell'immagine c'è un file in arrivo
         //questo perchè essendo nullable posso anche lasciare tutto vuoto volendo
@@ -95,8 +94,7 @@ class PostController extends Controller
         $newPostElement2 =  Post::find($id);
 
          
-        $newPostElement2->Nome = $request['Nome'];
-         //$newPostElement2->type_id = $request['type_id '];  
+        $newPostElement2->Nome = $request['Nome'];  
         $newPostElement2->Descrizione = $request['Descrizione'];
 
 

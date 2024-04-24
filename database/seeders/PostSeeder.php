@@ -20,7 +20,6 @@ class PostSeeder extends Seeder
             $newPost = new Post();
     
             $newPost->Nome = 'andy';
-            //$newPost->type_id = 1 ;
             $newPost->Descrizione = '' ;
             $newPost->Immagine_di_copertina = ' ';
             $newPost->Tecnologie_utilizzate=  implode(' , ', ['html','css','javascrit']) ;
