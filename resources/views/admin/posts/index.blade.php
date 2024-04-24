@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h1>PAGINA INDEX</h1>
+    <h1>PAGINA INDEX DEI POSTS</h1>
     {{---@dd($posts)---}}
 
 

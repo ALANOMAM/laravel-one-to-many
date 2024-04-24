@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,18 +46,20 @@ Route::middleware(['auth', 'verified'])
                 
              //ROTTE PER LE PAGINE SOLO ACCESSIBILI AGLI AMMINISTRATORI
              
-             //la rotta che mi crea il trio con DashboardController e la introPage di 
-             //admin, dove do il benvenuto all'admin e scrivo il suo nome in modo dinamico
+             
              Route::get('/', [DashboardController::class, 'introPage'])->name('introPage');
 
 
-             //la rotta che mi crea il trio con DashboardController e la pagina users di 
-             //admin, dove posso scrivere il nome di tutti gli utenti amministratori
+             
             Route::get('/users', [DashboardController::class, 'users'])->name('users');
 
-           //la rotta che mi crea il trio con PostController e la cartella posts di 
-           //admin, dove sono presenti le varie viste, show, edit, index ecc
+          
             Route::resource('posts',PostController::class);
+
+            //la rotta che mi crea il trio con TypeController e la cartella types di 
+           //admin, dove sono presenti le varie viste, show, edit,ecc dei tipi
+            Route::resource('types',TypeController::class);
+
         }
 
        
