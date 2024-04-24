@@ -38,8 +38,14 @@ class TypeController extends Controller
      * Display the specified resource.
      */
     public function show(Type $type)
-    {
-        //
+    {   
+        //con questo commando posso avere accesso a tutti i posts che hanno un determinato tip
+        // questo grazie al fatto che nel model "Type.php" ho creato una relazione 
+        // dd($type->posts);
+
+
+        //mi porta alla vista index dei tipi
+        return view('admin/types/show',compact('type'));
     }
 
     /**

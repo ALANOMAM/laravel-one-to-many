@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h1>PAGINA SHOW</h1>
+    <h1>PAGINA SHOW DEI POSTS</h1>
   
  
 

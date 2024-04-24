@@ -20,7 +20,7 @@
         <tr>      
         <td>{{$type->id}} - {{$type->title}}</td>
         <td>{{$type->description}}</td>
-        {{--<td><a class="btn btn-success" href="{{route('admin.posts.show' , $post->id )}}">visualizza tipo</a></td>--}}
+        <td><a class="btn btn-success" href="{{route('admin.types.show' , $type->id )}}">visualizza tipo</a></td>
        </tr>
         @endforeach 
         
